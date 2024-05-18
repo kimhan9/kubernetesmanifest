@@ -13,7 +13,7 @@ pipeline {
           sh "git clone https://github.com/kimhan9/kubernetesmanifest.git"
           sh "cd kubernetesmanifest"
           dir('kubernetesmanifest') {
-            sh "sed -i 's+raj80dockerid/test.*+raj80dockerid/test:${env.BUILD_NUMBER}+g' deployment.yaml"
+            sh "sed -i 's+conandor/flaskdemo.*+conandor/flaskdemo:${env.BUILD_NUMBER}+g' deployment.yaml"
             sh "git config user.email conandor@gmail.com"
             sh "git config user.name devops-bot"
             sh "git add ."
