@@ -1,5 +1,12 @@
 pipeline {
   agent any
+  stages {
+    stage('Clean Workspace') {
+      steps {
+        cleanWs()
+      }
+    }
+
     stage('Update Manifest') {
       steps {
         withCredentials([usernamePassword(credentialsId: 'github2', passwordVariable: 'GIT_PASSWORD', usernameVariable: 'GIT_USERNAME')]) {
@@ -16,6 +23,5 @@ pipeline {
         }
       }
     }
-
   }
 }
